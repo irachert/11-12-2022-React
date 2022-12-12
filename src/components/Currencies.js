@@ -12,14 +12,7 @@ function Currencies() {
 	useEffect(() => {
 		fetch('https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?date=20221208&json')
 			.then(res => res.json())
-			.then(data =>
-				setCurrencies(data.map(currency => ({
-					txt: currency.txt,
-					rate: currency.rate,
-					cc: currency.cc,
-					exchangedate: currency.exchangedate,
-				})))
-			);
+			.then(data => setCurrencies(data));
 	}, [])
 
 	function searchByCurrencyName(value) {
